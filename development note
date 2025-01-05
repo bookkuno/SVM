@@ -1,0 +1,17 @@
+Train SVM
+- start with the simplest/base case: linear svm
+   > use only 1 dataset (UDP) for train and test
+   > do somedata processing
+   > got a accuracy ~ 90%
+- then use two datasets (one for train and validate); another for test | but still linear svm (try others but no improvment to the accuracy)
+   > got low accuracy ~ 10%
+       > potential problems: 
+            1)Imbalanced Classes:
+              The test set has a severe imbalance:
+              Class 0 and 1 dominate, while Class 2 has no samples.
+              The model struggles with rare classes.
+            2)Overfitting: The model performs well on the validation set but poorly on the test set, indicating overfitting to the training/validation data.
+            Dataset Discrepancies:
+            3)Possible differences between training/validation and test datasets in terms of class distribution or feature scaling.
+      > identifying the problem(s):
+      > solution(s):
