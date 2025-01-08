@@ -13,7 +13,7 @@ Train SVM
             2)Overfitting: The model performs well on the validation set but poorly on the test set, indicating overfitting to the training/validation data.
             Dataset Discrepancies:
             3)Possible differences between training/validation and test datasets in terms of class distribution or feature scaling.
-      > identifying the problem(s):
+      > identifying the problem(s): Class Imbalance: Class 0 and 1 dominate, while Class 2 has no samples in the test set. This imbalance skews model performance.
       > solution(s): add class_weight='balanced' to the line: svm_model = SVC(kernel='linear', C=1.0, class_weight='balanced')
          - accuracy increased by 5% from 10% to 15%
 
