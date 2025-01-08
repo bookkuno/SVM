@@ -1,9 +1,9 @@
-Train SVM
-- start with the simplest/base case: linear svm
+Train SVM (UDP dataset)
+- 1)start with the simplest/base case: linear svm
    > use only 1 dataset (UDP) for train and test
    > do somedata processing
-   > got a accuracy ~ 90%
-- then use two datasets (one for train and validate); another for test | but still linear svm (try others but no improvment to the accuracy)
+   > got a accuracy ~ 99%
+- 2)then use two datasets (one for train and validate); another for test | but still linear svm (try others but no improvment to the accuracy)
    > got low accuracy ~ 10%
        > potential problems: 
             1)Imbalanced Classes:
@@ -17,3 +17,28 @@ Train SVM
       > solution(s): add class_weight='balanced' to the line: svm_model = SVC(kernel='linear', C=1.0, class_weight='balanced')
          - accuracy increased by 5% from 10% to 15%
 
+Train SVM (IDS2018 dataset)
+- 1) Same as 1 in UDP
+- 2) same setting as the one on UDP (after adding class_weight='balanced')
+   > SVM_Type, Train_Validate_Set, Train_Sampling_Size(0-1 = 0-100%),  Test_Set, Test__Sampling_Size(0-1 = 0-100%), Accuracy
+      > Train with 14
+      - Linear, 14, 0.1, 15, 0.1, 0.756
+      - Linear, 14, 0.2, 15, 0.2, 0.768
+      - Linear, 14, 0.3, 15, 0.3, 0.800
+   > Train with 15
+      - Linear, 15, 0.1, 14, 0.1, 0.631
+      - Linear, 15, 0.2, 14, 0.2, 0.633
+   -----------DDoS dataset--------------
+   > Train with DDOS attack-HOIC(20) 4GB, 84 columns, Benign 93% | DDoS attacks-LOIC-HTTP 7%
+      - Linear, 20, 0.01, 21, 0.1, 0. 
+      - Linear, 20, 0.05, 21, 0.5, 0.
+   > Train with DDoS attacks-LOIC-HTTP(21) 329MB (10 times samller than 20), 80 columns, Benign 93% | DDOS attack-HOIC 65%
+      - Linear, 21, 0.1, 20, 0.01, 0.
+      - Linear, 21, 0.5, 20, 0.05, 0.
+     
+
+
+   > Since each dataset has different label names for DDoS, have to check for their correlation/dependency -> possible to use it intercgangeably (rename to just DDoS for all)
+      - Methods to check:
+         - Chi-Square tests for categorical labels.
+         - Train a model to predict B and test it on C (or vice versa).
