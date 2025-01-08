@@ -29,10 +29,10 @@ Train SVM (IDS2018 dataset)
       - Linear, 15, 0.1, 14, 0.1, 0.631
       - Linear, 15, 0.2, 14, 0.2, 0.633
    -----------DDoS dataset--------------
-   > Train with DDOS attack-HOIC(20) 4GB, 84 columns, Benign 93% | DDoS attacks-LOIC-HTTP 7%
-      - Linear, 20, 0.01, 21, 0.1, 0. 
+   > Train with DDOS attack-LOIC-HTTP(20) 4GB, 84 columns, Benign 93% | DDoS attacks-LOIC-HTTP 7%
+      - Linear, 20, 0.01, 21, 0.1, 0.827
       - Linear, 20, 0.05, 21, 0.5, 0.
-   > Train with DDoS attacks-LOIC-HTTP(21) 329MB (10 times samller than 20), 80 columns(no first 4 columns in 20: Flow ID, Src IP, Src Port, Dst IP), Benign 93% | DDOS attack-HOIC 65%
+   > Train with DDoS attacks-HOIC(21) 329MB (10 times samller than 20), 80 columns(no first 4 columns in 20: Flow ID, Src IP, Src Port, Dst IP), Benign 93% | DDOS attack-HOIC 65%
       - Linear, 21, 0.1, 20, 0.01, 0.
       - Linear, 21, 0.5, 20, 0.05, 0.
    
