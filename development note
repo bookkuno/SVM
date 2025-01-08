@@ -32,12 +32,10 @@ Train SVM (IDS2018 dataset)
    > Train with DDOS attack-HOIC(20) 4GB, 84 columns, Benign 93% | DDoS attacks-LOIC-HTTP 7%
       - Linear, 20, 0.01, 21, 0.1, 0. 
       - Linear, 20, 0.05, 21, 0.5, 0.
-   > Train with DDoS attacks-LOIC-HTTP(21) 329MB (10 times samller than 20), 80 columns, Benign 93% | DDOS attack-HOIC 65%
+   > Train with DDoS attacks-LOIC-HTTP(21) 329MB (10 times samller than 20), 80 columns(no first 4 columns in 20: Flow ID, Src IP, Src Port, Dst IP), Benign 93% | DDOS attack-HOIC 65%
       - Linear, 21, 0.1, 20, 0.01, 0.
       - Linear, 21, 0.5, 20, 0.05, 0.
-     
-
-
+   
    > Since each dataset has different label names for DDoS, have to check for their correlation/dependency -> possible to use it intercgangeably (rename to just DDoS for all)
       - Methods to check:
          - Chi-Square tests for categorical labels.
