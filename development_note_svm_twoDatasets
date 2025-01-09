@@ -21,7 +21,7 @@ Train SVM (IDS2018 dataset)
 - 1) Same as 1 in UDP
 - 2) same setting as the one on UDP (after adding class_weight='balanced')
    > SVM_Type, Train_Validate_Set, Train_Sampling_Size(0-1 = 0-100%),  Test_Set, Test__Sampling_Size(0-1 = 0-100%), Accuracy
-   -----------DDoS datasets-------------- https://www.unb.ca/cic/datasets/ids-2018.html
+   -----------DDoS datasets(random_state = 42)-------------- https://www.unb.ca/cic/datasets/ids-2018.html
    > Train with DoS attacks-GoldenEye(15) 375MB, 80 columns, Benign 95% | DoS attacks-GoldenEye 4% | Others 1%
       https://www.kaggle.com/datasets/solarmainframe/ids-intrusion-csv?resource=download&select=02-15-2018.csv
       🔵15 vs 20
