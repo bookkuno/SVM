@@ -31,14 +31,14 @@ Train SVM (IDS2018 dataset)
    -----------DDoS datasets-------------- https://www.unb.ca/cic/datasets/ids-2018.html
    > Train with DDOS attack-LOIC-HTTP(20) 4GB, 84 columns, Benign 93% | DDoS attacks-LOIC-HTTP 7%
       https://www.kaggle.com/datasets/solarmainframe/ids-intrusion-csv?select=02-20-2018.csv
-      - linear, 20, 0.01, 21, 0.1, 0.827
+      - ✅linear, 20, 0.01, 21, 0.1, 0.827 | Best Parameters: {'C': 100, 'kernel': 'linear'}
       - ✅poly, 20, 0.01, 21, 0.1, 0.838 | Best Parameters: {'C': 100, 'kernel': 'poly'}
       - ✅rbf, 20, 0.01, 21, 0.1, 0.723 | Best Parameters: {'C': 100, 'kernel': 'rbf'}
    > Train with DDoS attacks-HOIC(21) 329MB (10 times samller than 20), 80 columns(no first 4 columns in 20: Flow ID, Src IP, Src Port, Dst IP), Benign 93% | DDOS attack-HOIC 65%
       https://www.kaggle.com/datasets/solarmainframe/ids-intrusion-csv/data?select=02-21-2018.csv
       - ✅linear, 21, 0.1, 20, 0.01, 0.393 | Best Parameters: {'C': 0.1, 'kernel': 'linear'}
-      - poly, 21, 0.01, 20, 0.1, 0.
-      - rbf, 21, 0.01, 20, 0.1, 0.
+      - ✅poly, 21, 0.01, 20, 0.1, 0.330 | Best Parameters: {'C': 100, 'kernel': 'poly'}
+      - ✅rbf, 21, 0.01, 20, 0.1, 0.546 | Best Parameters: {'C': 10, 'kernel': 'rbf'}
    > Since each dataset has different label names for DDoS, have to check for their correlation/dependency -> possible to use it intercgangeably (rename to just DDoS for all)
       - Methods to check:
          - Chi-Square tests for categorical labels.
