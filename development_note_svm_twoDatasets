@@ -23,6 +23,7 @@ Train SVM (IDS2018 dataset)
    > SVM_Type, Train_Validate_Set, Train_Sampling_Size(0-1 = 0-100%),  Test_Set, Test__Sampling_Size(0-1 = 0-100%), Accuracy
    -----------DDoS datasets-------------- https://www.unb.ca/cic/datasets/ids-2018.html
    > Train with DoS attacks-GoldenEye(15) 375MB, 80 columns, Benign 95% | DoS attacks-GoldenEye 4% | Others 1%
+      https://www.kaggle.com/datasets/solarmainframe/ids-intrusion-csv?resource=download&select=02-15-2018.csv
       🔵15 vs 20
       - linear, 15, 0.1, 20, 0.01, 0. | 
       - poly, 15, 0.1, 20, 0.01, 0. | 
@@ -38,9 +39,9 @@ Train SVM (IDS2018 dataset)
       - ✅poly, 20, 0.01, 21, 0.1, 0.838 | Best Parameters: {'C': 100, 'kernel': 'poly'}
       - ✅rbf, 20, 0.01, 21, 0.1, 0.723 | Best Parameters: {'C': 100, 'kernel': 'rbf'}
       🟡20 vs 15
-      - linear, 20, 0.01, 15, 0.1, 0. | 
-      - poly, 20, 0.01, 15, 0.1, 0. | 
-      - rbf, 20, 0.01, 15, 0.1, 0. | 
+      - ✅linear, 20, 0.01, 15, 0.1, 0.942 | Best Parameters: {'C': 100, 'kernel': 'linear'}
+      - ✅poly, 20, 0.01, 15, 0.1, 0.959 | Best Parameters: {'C': 100, 'kernel': 'poly'}
+      - ✅rbf, 20, 0.01, 15, 0.1, 0.961 | Best Parameters: {'C': 100, 'kernel': 'rbf'}
    > Train with DDoS attacks-HOIC(21) 329MB (10 times samller than 20), 80 columns(no first 4 columns in 20: Flow ID, Src IP, Src Port, Dst IP), Benign 93% | DDOS attack-HOIC 65%
       https://www.kaggle.com/datasets/solarmainframe/ids-intrusion-csv/data?select=02-21-2018.csv
       🔴21 vs 15
