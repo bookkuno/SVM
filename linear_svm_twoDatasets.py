@@ -7,8 +7,20 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 from sklearn.model_selection import GridSearchCV
 
 # Step 1: Load the Datasets
-data1 = pd.read_csv("/Users/supak/Downloads/UDP-training.csv")
-data2 = pd.read_csv("/Users/supak/Downloads/UDP-testing_edit2.csv")
+data1A = pd.read_csv("/Users/book_kuno/Downloads/DDoS 2018/02-20-2018.csv", low_memory=False)
+data2A = pd.read_csv("/Users/book_kuno/Downloads/DDoS 2018/02-21-2018.csv", low_memory=False)
+
+#-----------Customized part for each particular datasets--------------
+# List of columns to drop
+columns_to_drop = ['Flow ID', 'Src Port', 'Src IP', 'Dst IP']
+# Drop the specified columns from data1
+data1AD = data1A.drop(columns=columns_to_drop, errors='ignore')
+# Randomly sample 1/10 of the data
+data1 = data1AD.sample(frac=0.05, random_state=42)  # frac=0.1 means 10%, random_state ensures reproducibility
+print(data1.head())
+data2 = data2A.sample(frac=0.5, random_state=42)  # frac=0.1 means 10%, random_state ensures reproducibility
+print(data2.head())
+#-----------Customized part for each particular datasets--------------
 
 # Step 2: Preprocess the Data
 def preprocess_data(data):
@@ -43,7 +55,8 @@ X2, y2 = preprocess_data(data2)
 X_train, X_val, y_train, y_val = train_test_split(X1, y1, test_size=0.3, random_state=42)
 
 # Step 4: Train the Linear SVM
-svm_model = SVC(kernel='linear', C=1.0) #function is used to create an SVM classifier (from scikit-learn)
+svm_model = SVC(kernel='linear', C=1.0, class_weight='balanced')
+#function is used to create an SVM classifier (from scikit-learn)
 #svm_model = SVC(kernel='rbf', C=1.0, gamma='scale')
 svm_model.fit(X_train, y_train)
 
