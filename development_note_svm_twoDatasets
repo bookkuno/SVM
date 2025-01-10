@@ -30,7 +30,7 @@ Train SVM (IDS2018 dataset)
       - rbf, 15, 0.1, 20, 0.01, 0. | 
       🔵15 vs 21
       - ✅linear, 15, 0.1, 21, 0.1, 0.393 | Best Parameters: {'C': 0.1, 'kernel': 'linear'}
-      - ✅poly, 15, 0.1, 21, 0.1, 0. | 
+      - ✅poly, 15, 0.1, 21, 0.1, 0.342 | Best Parameters: {'C': 10, 'kernel': 'poly'} 
       - ✅rbf, 15, 0.1, 21, 0.1, 0.342 | Best Parameters: {'C': 100, 'kernel': 'rbf'}
    > Train with DDOS attack-LOIC-HTTP(20) 4GB, 84 columns, Benign 93% | DDoS attacks-LOIC-HTTP 7%
       https://www.kaggle.com/datasets/solarmainframe/ids-intrusion-csv?select=02-20-2018.csv
