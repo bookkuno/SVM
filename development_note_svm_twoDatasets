@@ -45,9 +45,9 @@ Train SVM (IDS2018 dataset)
    > Train with DDoS attacks-HOIC(21) 329MB (10 times samller than 20), 80 columns(no first 4 columns in 20: Flow ID, Src IP, Src Port, Dst IP), Benign 93% | DDOS attack-HOIC 65%
       https://www.kaggle.com/datasets/solarmainframe/ids-intrusion-csv/data?select=02-21-2018.csv
       🔴21 vs 15
-      - linear, 21, 0.1, 15, 0.1, 0. | 
-      - poly, 21, 0.1, 15, 0.1, 0. | 
-      - rbf, 21, 0.1, 15, 0.1, 0. | 
+      - ✅linear, 21, 0.1, 15, 0.1, 0.307 | Best Parameters: {'C': 0.1, 'kernel': 'linear'}
+      - ✅poly, 21, 0.1, 15, 0.1, 0.201 | Best Parameters: {'C': 10, 'kernel': 'poly'}
+      - ✅rbf, 21, 0.1, 15, 0.1, 0.417 | Best Parameters: {'C': 10, 'kernel': 'rbf'}
       🔴21 vs 20
       - ✅linear, 21, 0.1, 20, 0.01, 0.393 | Best Parameters: {'C': 0.1, 'kernel': 'linear'}
       - ✅poly, 21, 0.01, 20, 0.1, 0.330 | Best Parameters: {'C': 100, 'kernel': 'poly'}
