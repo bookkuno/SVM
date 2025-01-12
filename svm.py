@@ -7,8 +7,6 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 from sklearn.model_selection import GridSearchCV
 
 # Step 2: Load the Dataset
-# data = pd.read_csv("/Users/book_kuno/Downloads/archive/02-14-2018.csv")
-# print(data.head())
 data = pd.read_csv("/Users/book_kuno/Downloads/DDoS 2018/02-21-2018.csv")
 print(data.head())
 # Randomly sample 1/10 of the data
@@ -62,3 +60,43 @@ print("Test Results")
 print(confusion_matrix(y_test, y_test_pred))
 print(classification_report(y_test, y_test_pred))
 print("Accuracy:", accuracy_score(y_test, y_test_pred))
+
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+
+# Step 9: Dimensionality Reduction for Visualization
+pca = PCA(n_components=2)
+X_test_pca = pca.fit_transform(X_test)
+
+# Map class labels back to their original names
+class_labels = dict(zip(range(len(encoder.classes_)), encoder.classes_))
+y_test_names = y_test.map(class_labels)
+y_test_pred_names = pd.Series(y_test_pred).map(class_labels)
+
+# Plot the true classes
+plt.figure(figsize=(12, 6))
+plt.subplot(1, 2, 1)
+for label in np.unique(y_test_names):
+    plt.scatter(X_test_pca[y_test_names == label, 0], 
+                X_test_pca[y_test_names == label, 1], 
+                label=label, alpha=0.6)
+plt.title("True Classes")
+plt.xlabel("PCA Component 1")
+plt.ylabel("PCA Component 2")
+plt.legend(loc="best")
+plt.grid()
+
+# Plot the predicted classes
+plt.subplot(1, 2, 2)
+for label in np.unique(y_test_pred_names):
+    plt.scatter(X_test_pca[y_test_pred_names == label, 0], 
+                X_test_pca[y_test_pred_names == label, 1], 
+                label=label, alpha=0.6)
+plt.title("Predicted Classes")
+plt.xlabel("PCA Component 1")
+plt.ylabel("PCA Component 2")
+plt.legend(loc="best")
+plt.grid()
+
+plt.tight_layout()
+plt.show()
